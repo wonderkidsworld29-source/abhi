@@ -6,8 +6,8 @@ from telegram import Bot
 # ==========================
 # Environment variables
 # ==========================
-TOKEN = os.getenv("TOKEN")        # Set in Render env variables
-CHAT_ID = os.getenv("CHAT_ID")    # Set in Render env variables
+TOKEN = os.getenv("8573280925:AAHlT2QIZTvFbFyV4YgGR56cuz_-4ld-Yy4")        # Set in Render env variables
+CHAT_ID = os.getenv("-1002659872445")    # Set in Render env variables
 BASE_PATH = "images"              # folder containing photo1.jpg ... photo10.jpg
 
 if not TOKEN or not CHAT_ID:

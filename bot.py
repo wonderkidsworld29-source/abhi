@@ -2,13 +2,14 @@ import os
 import time
 import schedule
 from telegram import Bot
+import imghdr  # Python 3.11+ fix
 
 # ==========================
 # Environment variables
 # ==========================
-TOKEN = os.getenv("8573280925:AAHlT2QIZTvFbFyV4YgGR56cuz_-4ld-Yy4")        # Set in Render env variables
-CHAT_ID = os.getenv("-1002659872445")    # Set in Render env variables
-BASE_PATH = "images"              # folder containing photo1.jpg ... photo10.jpg
+TOKEN = os.getenv("8573280925:AAHlT2QIZTvFbFyV4YgGR56cuz_-4ld-Yy4")      # Render environment variable
+CHAT_ID = os.getenv("-1002659872445")  # Render environment variable
+BASE_PATH = "images"            # folder containing photo1.jpg ... photo10.jpg
 
 if not TOKEN or not CHAT_ID:
     raise RuntimeError("TOKEN or CHAT_ID environment variable not set!")
@@ -22,13 +23,13 @@ def send_photo(caption, image_name):
     try:
         path = os.path.join(BASE_PATH, image_name)
         with open(path, "rb") as f:
-            bot.send_photo(chat_id=CHAT_ID, photo=f, caption=caption)
+            bot.send_photo(chat_id=CHAT_ID, photo=f, caption=caption, filename=image_name)
         print(f"Sent: {image_name}")
     except Exception as e:
         print(f"Error sending {image_name}: {e}")
 
 # ==========================
-# 10 messages + images
+# 10 full messages + images
 # ==========================
 posts = [
     ("""👍👍👍👍👍👍👍👍👍
